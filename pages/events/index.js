@@ -2,6 +2,7 @@ import getData from "../../utils/query-database";
 import EventsList from "../../components/events/EventsList";
 import FilterForm from "@/components/events/FilterForm";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const EventsPage = (props) => {
   const { allEvents } = props;
@@ -11,6 +12,13 @@ const EventsPage = (props) => {
   };
   return (
     <>
+      <Head>
+        <title>All Events</title>
+        <meta
+          name="description"
+          content="find a lot of great events that allow you to evolve"
+        />
+      </Head>
       <FilterForm onSearch={searchEventsHanlder} />
       <EventsList eventsList={allEvents} />
     </>

@@ -4,11 +4,17 @@ import EventSummary from "@/components/event-detail/EventSummary";
 import EventContent from "@/components/event-detail/EventContent";
 import EventLogistics from "@/components/event-detail/EventLogistics";
 
+import Head from "next/head";
+
 const EventDetailPage = (props) => {
   const { event } = props;
   if (!event) return <div>no such event found!</div>;
   return (
     <>
+      <Head>
+        <title>{event.title}</title>
+        <meta name="description" content={event.description} />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}

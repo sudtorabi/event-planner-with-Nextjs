@@ -3,6 +3,7 @@ import Button from "../UI/Button";
 import DateIcon from "../icons/date-icon";
 import AddressIcon from "../icons/address-icon";
 import ArrowRightIcon from "../icons/arrow-right-icon";
+import Image from "next/image";
 
 const EventItem = (props) => {
   const { event } = props;
@@ -14,7 +15,13 @@ const EventItem = (props) => {
   const formattedAddress = event.location.replace(",", "\n");
   return (
     <li className={styles.item}>
-      <img src={"/" + event.image} alt={event.description} />
+      <Image
+        src={"/" + event.image}
+        alt={event.description}
+        width={250}
+        height={160}
+      />
+      {/* <img src={"/" + event.image} alt={event.description} /> */}
       <div className={styles.content}>
         <div className={styles.summary}>
           <h2>{event.title}</h2>

@@ -1,9 +1,22 @@
 import { getFeaturedEvents } from "../dummy-data";
 import EventsList from "../components/events/EventsList";
 import getData from "../utils/query-database.js";
+import { Fragment } from "react";
+import Head from "next/head";
 
 const HomePage = (props) => {
-  return <EventsList eventsList={props.featuredEvents} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>Featured Events</title>
+        <meta
+          name="description"
+          content="Do not miss out on a lot of special events that will end or get sold out soon"
+        />
+      </Head>
+      <EventsList eventsList={props.featuredEvents} />;
+    </Fragment>
+  );
 };
 export default HomePage;
 

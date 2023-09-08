@@ -1,9 +1,25 @@
 import { useRouter } from "next/router";
 import { getFilteredEvents } from "../../utils/query-database";
 import EventsList from "@/components/events/EventsList";
+import { Fragment } from "react";
+import Head from "next/head";
 
 const FilteredEventsPage = (props) => {
-  return <EventsList eventsList={props.filteredEvents} />;
+  const pageHeadContent = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta
+        name="description"
+        content="All the events for the time that suits you best"
+      />
+    </Head>
+  );
+  return (
+    <Fragment>
+      {pageHeadContent}
+      <EventsList eventsList={props.filteredEvents} />;
+    </Fragment>
+  );
 };
 
 export default FilteredEventsPage;
